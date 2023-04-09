@@ -1,13 +1,19 @@
 ## 通过OpenTelemetry上报iOS/Swift应用数据
 
-###步骤一：创建应用并添加依赖
+### 步骤一：创建应用并添加依赖
 1. 选择要创建的应用，如 macOS Command Line Tool
 
-2. 在XCode中选择File -> Add Packages...，在搜索框中输入https://github.com/open-telemetry/opentelemetry-swift，选择1.4.1版本，更多信息请参考[opentelemetry-swift releases信息](https://github.com/open-telemetry/opentelemetry-swift/releases) 
+2. 在XCode中选择File -> Add Packages...，在搜索框中输入 https://github.com/open-telemetry/opentelemetry-swift 。选择1.4.1版本，更多信息请参考[opentelemetry-swift releases信息](https://github.com/open-telemetry/opentelemetry-swift/releases) 
 
 3. 勾选所需的Package Products，在本例中使用到的Package Products包括：
+- OpenTelemetryApi
+- OpenTelemetryProtocolExporter
+- OpenTelemetrySdk
+- URLSessionInstrumentation
+- StdoutExporter
+- ResourceExtension
 
-###步骤二： OpenTelemetry初始化
+### 步骤二： OpenTelemetry初始化
 1. 创建用于导出观测数据的组件，有以下三种导出方式
 - 方法一：通过grpc协议上报Trace数据
     - 请分别将 <gRPC-endpoint> 和 <gRPC-port> 替换为从前提条件中获取的接入点，例如host: "http://tracing-analysis-dc-hz.aliyuncs.com", port:8090
